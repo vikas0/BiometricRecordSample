@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+android {
+    sourceSets
+            {
+                main
+                        {
+
+                            jniLibs.srcDirs = ['src/main/jnilibs']
+
+                        }
+
+//Another code
+
+            }
+    compileSdkVersion 26
+    buildToolsVersion '26.0.0'
+    defaultConfig {
+        applicationId "com.goambee.biometricziqitza"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    splits {
+
+        // Configures multiple APKs based on ABI.
+        abi {
+
+            // Enables building multiple APKs per ABI.
+            enable true
+
+            // By default all ABIs are included, so use reset() and include to specify that we only
+            // want APKs for x86, armeabi-v7a, and mips.
+
+            // Resets the list of ABIs that Gradle should create APKs for to none.
+            reset()
+
+            // Specifies a list of ABIs that Gradle should create APKs for.
+            include  "armeabi-v7a"
+
+            // Specifies that we do not want to also generate a universal APK that includes all ABIs.
+            universalApk false
+        }
+    }
+}
+
+//
+//sourceSets
+//        {
+//            main
+//                    {
+//
+//                        jniLibs.srcDirs = ['src/main/jnilibs']
+//
+//                    }
+//
+////Another code
+//
+//        }
+
+//sourceSets {
+//    main {
+//        jniLibs.srcDirs = ["libs"]
+//    }
+//}
+dependencies {
+
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+//    compile fileTree(dir: "$buildDir/native-libs", include: 'native-libs.jar')
+
+
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+}
+
+
+//task native-libstiveLibsToJar(type: Jar, description: 'create a jar archive of the native libs') {
+//    destinationDir file("$buildDir/native-libs")
+//    baseName 'native-libs'
+//    from fileTree(dir: 'src/main/jnilibs', include: '**/*.so')
+//    into 'lib/'
+//}
+//
+//tasks.withType(JavaCompile)
+//        {
+//            compileTask -> compileTask.dependsOn(nativeLibsToJar)
+//        }

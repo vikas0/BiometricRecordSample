@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.goambee.biometricziqitza.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="386dp"
+        android:layout_height="666dp"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="-5dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Biometric Projet Ambee" />
+
+        <Button
+            android:id="@+id/btnStartCapture"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capture"
+            android:layout_below="@+id/textView"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView"
+            android:layout_marginTop="36dp" />
+
+        <Button
+            android:id="@+id/clearAttempt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btnStartCapture"
+            android:layout_alignStart="@+id/btnStartCapture"
+            android:layout_below="@+id/btnStartCapture"
+            android:layout_marginTop="45dp"
+            android:text="clear Attempt" />
+
+        <EditText
+            android:id="@+id/CaptureAttemptTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/clearAttempt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="CaptureAttemptTextView" />
+
+        <ImageView
+            android:id="@+id/fp_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btnStartCapture"
+            android:layout_alignRight="@+id/btnStartCapture"
+            android:layout_below="@+id/CaptureAttemptTextView"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="27dp"
+            app:srcCompat="@android:drawable/btn_star" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
